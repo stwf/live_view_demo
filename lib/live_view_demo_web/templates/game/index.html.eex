@@ -1,0 +1,22 @@
+<%= if (@user.games == 0) do %>
+  <div class="headline">
+    Welcome to CodeBreaker!
+  </div>
+<% else %>
+  <div class="headline">
+    Welcome Back to CodeBreaker!
+  </div>
+  You have played <%= @user.games %> games and won <%= @user.games %>
+<% end %>
+
+
+<div class="choice_display">
+  <h3>
+    Begin a game
+  </h3>
+</div>
+<div class="choice_display game-choices">
+  <%= link "Easy", to: Routes.game_path(@conn, :new, colors: 4), class: "button" %>
+  <%= link "Moderate", to: Routes.game_path(@conn, :new, colors: 5), class: "button" %>
+  <%= link "Difficult", to: Routes.game_path(@conn, :new, colors: 6), class: "button" %>
+</div>

@@ -2,3 +2,191 @@
 
 @import "./phoenix.css";
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
+
+.container {
+  max-width: 96%;
+}
+
+.fireworks {
+  background: url("/images/fireworks.gif") no-repeat center center fixed; 
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.logo {
+  font-size: 38px;
+  font-style: oblique;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.headline {
+  font-size: 28px;
+  font-style: bold;
+  width: 100%;
+  height: 90px;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.button, button{
+  padding: 0 2.5rem;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+
+.game-choices {
+  display: flex;
+   justify-content: center;
+}
+
+.current_guess_box {
+  display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   height: 160px;
+}
+
+.flex-container {
+  display: flex;
+   justify-content: flex-end;
+}
+
+.outer-flex-container {
+  display: flex;
+   justify-content: center;
+}
+
+.turn-flex-container {
+  display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.guess-box {
+  border: 1px solid gray;
+  padding: 6px;
+  padding-bottom: 1px;
+  margin: 8px;
+  border-radius: 10px;
+  width: 70px;
+}
+
+.result-box {
+  border: 1px solid gray;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  width: 300px;
+  height: 44px;
+}
+
+.guess-result-box {
+  display: flex;
+   justify-content: space-around;
+  width: 300px;
+  height: 50px;
+}
+
+.clear-result-box {
+  padding: 12px;
+  width: 300px;
+}
+
+.clear-result-box {
+  padding: 12px;
+  display: flex;
+   justify-content: space-around;
+   align-items: center;
+  flex-flow: row wrap;
+  width: 300px;
+}
+
+.help {
+  padding-top: 10px;
+  font-size: 11px;
+  width: 100%;
+}
+.guess-box .guess_display {
+  margin: 4px;
+}
+
+.guess_display {
+   text-align: center;
+   vertical-align: middle;
+   height: 50px;
+}
+
+.choice_display {
+   text-align: center;
+   vertical-align: middle;
+   margin-top: 40px;
+}
+
+.game-choices a {
+  margin-right:12px;
+  margin-left:12px;
+}
+.bulb-top {
+  position: relative;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+  -moz-border-radius: 999px;
+  -webkit-border-radius: 999px;
+  -khtml-border-radius: 999px;
+  border-radius: 999px;
+  background: #E7E7E7;
+  box-shadow: inset 0px 10px 15px -5px rgba(10,30,60,0.1); 
+  -moz-box-shadow: inset 0px 10px 15px -5px rgba(10,30,60,0.1);  
+  -webkit-box-shadow: inset 0px 20px 40px -10px rgba(10,30,60,0.1);  
+}
+
+.result-peg {
+  position: relative;
+  border: 1px solid black;
+  width: 18px;
+  height: 18px;
+  margin: 0 2px;
+  padding: 0;
+  -moz-border-radius: 999px;
+  -webkit-border-radius: 999px;
+  -khtml-border-radius: 999px;
+  border-radius: 999px;
+}
+
+.result-peg.b {
+  background-color: black;
+}
+
+.result-peg.w {
+  background-color: white;
+}
+
+.reflection {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgba(255,255,255,0.8);
+  width: 15px;
+  height: 15px;
+  -moz-border-radius: 999px 400px;
+  -webkit-border-radius: 999px 400px;
+  -khtml-border-radius: 999px 400px;
+  border-radius: 999px 400px;
+}
+
+.x {
+  content: "?";
+}
+
+.a { background: blue; }
+.b { background: red; }
+.c { background: green; }
+.d { background: yellow; }
+.e { background: orange; }
+.f { background: magenta; }

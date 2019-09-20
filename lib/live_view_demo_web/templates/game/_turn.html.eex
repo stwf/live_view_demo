@@ -1,0 +1,20 @@
+<div class="turn-flex-container">
+  <div class="flex-container" style="width: <%= @game.colors * 120 %>px;">
+   <%= for i <- 1..@game.colors do %>
+    <span class="guess-box">
+      <div class="guess_display">
+        <div class="bulb-top <%= Enum.at(@turn.guess, i - 1) %>">
+          <div class="reflection"></div>
+        </div>      
+      </div>
+    </span>
+  <% end %>
+  </div>
+  <div class="result-box">
+    <%= for peg <- @turn.result do %>
+      <div class="result-peg <%= peg %>">
+       
+      </div>
+    <% end %>
+  </div>
+</div>

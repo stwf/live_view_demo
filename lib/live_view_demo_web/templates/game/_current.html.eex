@@ -1,0 +1,12 @@
+ <div class="outer-flex-container <%= background_reaction(@game) %>">
+   <div class="current_guess_box" style="width: <%= @game.colors * 120 %>px;">
+   <%= for i <- 1..@game.colors do %>
+    <span class="guess-box">
+      <%= draw_guess_peg(@game, i) %>
+    </span>
+  <% end %>
+  </div>
+  <div class="clear-result-box">
+    <%= cb_action_btn(@game) %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="headline">
+  <%= code_break_instructions(@game) %>
+</div>
+
+<%= Phoenix.View.render(LiveViewDemoWeb.GameView, "_current.html" , game: @game) %>
+
+<%= Phoenix.View.render_many(@game.turns, LiveViewDemoWeb.GameView, "_turn.html" , game: @game, as: :turn) %>
