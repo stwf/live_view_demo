@@ -4,25 +4,11 @@ defmodule LiveViewDemo.CodeBreaker do
   """
 
   import Ecto.Query, warn: false
-  alias LiveViewDemo.Repo
 
-  alias LiveViewDemo.CodeBreaker.Arena
   alias LiveViewDemo.CodeBreaker.Game
   alias LiveViewDemo.CodeBreaker.Turn
 
   @colorlist ~w(a b c d e f)a
-  @doc """
-  Returns the list of games.
-
-  ## Examples
-
-      iex> list_games()
-      [%Game{}, ...]
-
-  """
-  def list_games do
-    Arena.get_games_for_id(1)
-  end
 
   def create_game_for_user(user_id, %{colors: colors}) do
     game_id = UUID.uuid4()
@@ -41,10 +27,6 @@ defmodule LiveViewDemo.CodeBreaker do
 
   def generate_solution(colors) do
     Enum.reduce(1..colors, [], fn _, a -> [Enum.random(@colorlist) | a] end)
-  end
-
-  def get_game(user_id, game_id) do
-    Arena.get_game(user_id, game_id)
   end
 
   def evaluate(guess, solution, colors) do

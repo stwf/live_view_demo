@@ -22,8 +22,41 @@ defmodule LiveViewDemoWeb.GameView do
     """
   end
 
-  def code_break_instructions(game) do
-    code_break_instruction_contents(game, Game.game_over?(game))
+  def code_break_instructions(%{turns: turns} = game) do
+    turns_left = (10 - (turns |> Enum.count()))
+    
+    cond do
+      (Game.game_won?(game) && (turns_left == 0)) ->
+        ~E"""
+          You Won On Your Last Turn!!
+          <BR>
+          <%= game_congrats(game) %>
+        """
+
+      (Game.game_won?(game) && (turns_left == 1)) ->
+        ~E"""
+          You Won With 1 turn remaining!!
+          <BR>
+          <%= game_congrats(game) %>
+        """
+
+      Game.game_won?(game) ->
+        ~E"""
+          You Won With <%= turns_left %> turns remaining!!
+          <BR>
+          <%= game_congrats(game) %>
+        """
+
+      Game.game_lost?(game) ->
+        ~E"""
+          You Lost
+        """
+
+      true ->
+        ~E"""
+        You have <%= turns_left %> turns remaining
+        """
+    end
   end
 
   def cb_action_btn(game) do
@@ -118,37 +151,13 @@ defmodule LiveViewDemoWeb.GameView do
     Enum.map(btn_data, fn {color_count, prompt} ->
       IO.inspect(prompt, label: "handledrawbtn prompt")
       ~s"""
-      <a href="/games/new?colors=#{color_count}" class="button">
+      <a href="/new?colors=#{color_count}" class="button">
         #{prompt}
       </a>
       """
     end)
     |> Enum.join
     |> Phoenix.HTML.raw
-  end
-
-  defp code_break_instruction_contents(%{turns: turns} = game, true) do
-    case (10 - (turns |> Enum.count())) |> Integer.to_string() do
-      "0" ->
-        ~E"""
-          You Lost
-        """
-
-      turn ->
-        ~E"""
-          You won With <%= turn %> turns remaining!!
-          <BR>
-          <%= game_congrats(game) %>
-        """
-    end
-  end
-
-  defp code_break_instruction_contents(%{turns: turns}, false) do
-    txt = (10 - (turns |> Enum.count())) |> Integer.to_string()
-
-    ~E"""
-    You have <%= txt %> turns remaining
-    """
   end
 
   defp game_congrats(%{turns: turns, colors: colors}) do

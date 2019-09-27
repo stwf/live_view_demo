@@ -5,7 +5,7 @@ defmodule LiveViewDemo.CodeBreaker.Game do
 
   def game_won?(%{turns: []}), do: false
 
-  def game_won?(%{colors: colors, turns: [%{result: result} | rest] = turns}) do
+  def game_won?(%{colors: colors, turns: [%{result: result} | _rest]}) do
     Enum.all?(result, fn i -> i == :b end) && Enum.count(result) == colors
   end
 

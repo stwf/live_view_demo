@@ -17,9 +17,7 @@ defmodule LiveViewDemoWeb.Router do
   scope "/", LiveViewDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-
-    resources "/games", GameController
+    resources "/", GameController
   end
 
   # Other scopes may use custom stacks.
