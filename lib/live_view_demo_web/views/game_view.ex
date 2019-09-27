@@ -149,7 +149,6 @@ defmodule LiveViewDemoWeb.GameView do
 
   defp handle_draw_btn(btn_data) do
     Enum.map(btn_data, fn {color_count, prompt} ->
-      IO.inspect(prompt, label: "handledrawbtn prompt")
       ~s"""
       <a href="/new?colors=#{color_count}" class="button">
         #{prompt}
